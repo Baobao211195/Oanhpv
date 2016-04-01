@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--
+	1): 
+		Cho phép add nhiều background image cho 1 thành phần
+		use: thuộc tính background-image
+		+ các background image khác nhau được tách biệt bằng dấu , và các image được chứa trên top mỗi thành phần khác nhau nơi mà ảnh đầu tiền gần nhất để viewer
+		+ Có thể sử dụng thuộc tính background để viết tắt
+	2):
+		+ Thuộc tính background-size chỉ cụ thể kích thước của image background
+		CSS3 cho phép chúng ta re-use background images trong các nội dung khác nhau 
+		+ Kích thước có thể là chiều dài, phần trăm, hoặc bằng cách sử dụng một trong cách từ khóa sau "contain" or "cover"
+		+ Hai value của background-size là
+			+ contain: quét background image rộng khi có thể, (cả chiều dài và chiều rộng của nó phải vừa content area). Như vậy việc phụ thuộc vào tỉ lệ  của background image và vị trí của background are, nó có thể là phần thừa mà background image ko thể covered hết được 
+			+ cover : content area vừa với background image , cả chiều dài và chiều rộng phải vừa với content area. Như vậy môt phần của background image có thẻ ko nhìn thấy trong background area
+			+ Ta cũng có thể set các kích thước khác nhau cho background image bằng cách sử dụng dấu phẩy khi làm việc với nhiều background
+			+ Muốn cover toành bộ trình duyệt bằng image ta dùng html {
+																	background : url() not-repeat center fixed
+																	background-size: cover
+																	}
+	3): Thuộc tính bachground-orgin : chỉ cụ thể nơi nào mà background image được đặt
+	 		- Thuộc tính có các giá trị sau : 
+				+ border-box : background image bắt đầu từ phía trên góc trái của border
+				+ padding-box : (mặc định) background image bắt đầu từ phía trên góc trái của cạnh padding
+				+ content-box : the background image starts from the upper left corner của content
+	3): Thuộc tính bachground-clip : chỉ cụ thể painting area của background
+	 		- Thuộc tính có các giá trị sau : 
+				+ border-box : background được vẽ tới cạnh ngoài của border (mặc định )
+				+ padding-box : background được vẽ tới cạnh ngoài của padding 
+				+ content-box : the background được vẽ bên trong content area 
+
+	 -->
+
+	 <style>
+	 /*#example1 {
+	 	background-image: url('images (1).jpg'), url('images.jpg');
+	 	background-position: right bottom, left top;
+	 	background-repeat: no-repeat, repeat;
+	 }*/
+	 /* có thể sử dụng thuộc tính background để viết tắt như sau */
+	 /*#example1 {
+	 	background : url('images (1).jpg') right bottom no-repeat, url('images.jpg') left top;
+	 }
+	 #example2 {
+	 	background: url('images (1).jpg');
+	 	background-size: 100px 80px;
+	 	background-repeat: no-repeat;
+	 }*/
+	 /* example ve "cover" and "contain"*/
+
+	 #example1 {
+	 	 background: url('images.jpg');
+	    background-size: contain;
+	    background-repeat: no-repeat;
+	 }
+	 #example2 {
+	 	 background: url('images (1).jpg');
+	    background-size: cover;
+	    background-repeat: no-repeat;	
+	 }
+	 #example3 {
+	 	border: 5px solid black ;
+	 	padding: 35px;
+	 	background: url('images (1).jpg');
+	 	background-repeat: no-repeat;
+	 	background-origin: border-box;
+	 }
+	 #example4 {
+	 	border: 5px solid black ;
+	 	padding: 35px;
+	 	background: url('images (1).jpg');
+	 	background-repeat: no-repeat;
+	 	background-origin: content-box;
+	 }
+	 </style>
+</head>
+<body>
+	<div id = "example1">
+		<h2>Pham van oanh</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		</p>
+	</div>
+	<div id = "example2">
+		<h2>Pham van oanh2</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		</p>
+	</div>
+
+	<div id = "example3">
+		<h2>Pham van oanh2</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud ex</p>
+	</div>
+
+
+	<div id = "example4">
+		<h2>Pham van oanh2</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud ex</p>
+	</div>
+
+
+</body>
+</html>
+
+
+
